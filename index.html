@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#090a0f">
+  <title>Audioscript — Phần mềm chạy nhạc sự kiện đơn giản nhất</title>
+  <meta name="description" content="Audioscript by Tung DT — Chạy show âm thanh mượt mà. Zero-Install, 100% Offline, quét QR điều khiển bằng điện thoại, kịch bản rundown trực quan.">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+</head>
+<body class="apple-dark">
+
+  <!-- Ambient Glow Effects -->
+  <div class="ambient-glow glow-top" aria-hidden="true"></div>
+
+  <!-- Minimal Glass Header -->
+  <header class="site-header" id="navbar">
+    <div class="nav-container">
+      <a href="#hero" class="brand-logo" aria-label="Audioscript Trang chủ">
+        <svg class="brand-logo-svg" viewBox="0 0 36 36" width="28" height="28" fill="none" aria-hidden="true">
+          <defs>
+            <linearGradient id="navBrandBg" x1="4" y1="2" x2="32" y2="34" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#24293D"/>
+              <stop offset="100%" stop-color="#0E1018"/>
+            </linearGradient>
+            <linearGradient id="navBrandWave" x1="7" y1="9" x2="29" y2="27" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#0A84FF"/>
+              <stop offset="55%" stop-color="#5E5CE6"/>
+              <stop offset="100%" stop-color="#30D158"/>
+            </linearGradient>
+          </defs>
+          <rect x="1.5" y="1.5" width="33" height="33" rx="8.5" fill="url(#navBrandBg)" stroke="rgba(255,255,255,0.16)" stroke-width="1"/>
+          <rect x="8" y="14.5" width="2.6" height="7" rx="1.3" fill="url(#navBrandWave)" opacity="0.85"/>
+          <rect x="12.3" y="10.5" width="2.6" height="15" rx="1.3" fill="url(#navBrandWave)"/>
+          <rect x="16.7" y="6.5" width="2.6" height="23" rx="1.3" fill="#64D2FF"/>
+          <rect x="21.1" y="9.5" width="2.6" height="17" rx="1.3" fill="url(#navBrandWave)"/>
+          <rect x="25.4" y="13.5" width="2.6" height="9" rx="1.3" fill="url(#navBrandWave)" opacity="0.9"/>
+          <circle cx="18" cy="6.5" r="2" fill="#F5F5F7"/>
+        </svg>
+        <span class="brand-title">Audioscript</span>
+      </a>
+
+      <nav class="nav-links">
+        <a href="#demo" class="nav-link">Giao diện</a>
+        <a href="#features" class="nav-link">Tính năng</a>
+        <a href="#remote" class="nav-link">Mobile Remote</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="https://drive.google.com/drive/folders/1Loddog4E6fzI087ZXjsqA48wcrF7VIgt?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn btn-pill btn-primary nav-cta">
+          <span>Tải ngay</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section class="hero-section" id="hero">
+      <div class="container hero-content">
+        
+        <div class="hero-tag">
+          <span class="hero-tag-dot"></span>
+          <span>Sự kiện trực tiếp • Không cần cài đặt • 100% Offline</span>
+        </div>
+
+        <h1 class="hero-title">
+          Chạy show âm thanh.<br>
+          <span class="text-gradient">Đơn giản đến bất ngờ.</span>
+        </h1>
+
+        <p class="hero-sub">
+          Mở trình duyệt là dùng ngay, hoạt động hoàn toàn offline. Quét mã QR điều khiển từ xa khắp hội trường.
+          Giao diện trực quan như một kịch bản sự kiện, an toàn tuyệt đối cho từng bài nhạc.
+        </p>
+
+        <div class="hero-actions">
+          <a href="https://drive.google.com/drive/folders/1Loddog4E6fzI087ZXjsqA48wcrF7VIgt?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-large">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            <span>Tải về thư mục Web App</span>
+          </a>
+          <a href="#demo" class="btn btn-secondary btn-large">
+            <span>Xem giao diện ứng dụng ↓</span>
+          </a>
+        </div>
+
+        <!-- DESKTOP APP DYNAMIC UI SHOWCASE -->
+        <div class="stage-frame-wrapper" id="demo">
+          <div class="window-shell">
+            
+            <!-- Window Titlebar -->
+            <div class="window-bar">
+              <div class="window-dots">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+              </div>
+              <div class="window-address">
+                <span class="addr-lock">🔒</span>
+                <span>localhost:3000 — <strong>Audioscript</strong></span>
+              </div>
+              <div class="window-pwa-pill">
+                <span class="live-dot"></span> PWA READY
+              </div>
+            </div>
+
+            <!-- Real Audioscript Desktop Console -->
+            <div class="desktop-console">
+              
+              <!-- 1. Crown Bar -->
+              <div class="crown-bar">
+                <div class="crown-left">
+                  <svg class="brand-logo-svg" viewBox="0 0 36 36" width="24" height="24" fill="none" aria-hidden="true">
+                    <rect x="1.5" y="1.5" width="33" height="33" rx="8.5" fill="#1C2030" stroke="rgba(255,255,255,0.16)"/>
+                    <rect x="8" y="14.5" width="2.6" height="7" rx="1.3" fill="#0A84FF"/>
+                    <rect x="12.3" y="10.5" width="2.6" height="15" rx="1.3" fill="#5E5CE6"/>
+                    <rect x="16.7" y="6.5" width="2.6" height="23" rx="1.3" fill="#64D2FF"/>
+                    <rect x="21.1" y="9.5" width="2.6" height="17" rx="1.3" fill="#30D158"/>
+                    <rect x="25.4" y="13.5" width="2.6" height="9" rx="1.3" fill="#0A84FF"/>
+                    <circle cx="18" cy="6.5" r="2" fill="#F5F5F7"/>
+                  </svg>
+                  <span class="crown-app-name">Audioscript</span>
+                  <span class="crown-badge-pro">PRO</span>
+                </div>
+
+                <div class="crown-center">
+                  <span class="crown-event-sub">SỰ KIỆN</span>
+                  <strong class="crown-event-name">Lễ Cưới Hoàng &amp; Khánh</strong>
+                </div>
+
+                <div class="crown-right">
+                  <div class="crown-output-pill">
+                    <span class="out-dot"></span>
+                    <span>SYSTEM OUTPUT</span>
+                  </div>
+                  <span class="crown-btn-pwa">CÀI APP</span>
+                </div>
+              </div>
+
+              <!-- 2. Utility Toolbar -->
+              <div class="app-toolbar">
+                <div class="toolbar-left">
+                  <span class="btn-tb">+ THÊM PHẦN</span>
+                  <span class="btn-tb">+ HOẠT ĐỘNG</span>
+                  <span class="tb-sep"></span>
+                  <span class="btn-tb">KHO NHẠC</span>
+                  <span class="btn-tb">LƯU SỰ KIỆN</span>
+                </div>
+
+                <div class="toolbar-right">
+                  <div class="btn-tb btn-tb-qr">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+                    <span>ĐIỀU KHIỂN ĐT</span>
+                    <span class="tb-badge">1</span>
+                  </div>
+
+                  <div class="tb-crossfade">
+                    <span>Chuyển:</span>
+                    <div class="cf-segmented">
+                      <span>0s</span>
+                      <span>1s</span>
+                      <span class="active">3s</span>
+                      <span>5s</span>
+                    </div>
+                  </div>
+
+                  <span class="btn-tb">KHÓA</span>
+                  <div class="tb-lang"><span class="active">VI</span><span>EN</span></div>
+                </div>
+              </div>
+
+              <!-- 3. Workspace: Real Cue Rundown -->
+              <div class="app-workspace">
+                <div class="group-panel">
+                  
+                  <div class="group-head">
+                    <div class="group-title-wrap">
+                      <span class="group-tag-bar"></span>
+                      <span class="group-label">PHẦN HÔN LỄ</span>
+                      <span class="group-meta">4 mục trong kịch bản</span>
+                    </div>
+                    <span class="group-tip">Kịch bản rundown trực quan • Tự động chuyển bài</span>
+                  </div>
+
+                  <div class="cues-list">
+                    
+                    <!-- Rundown activity step 1 -->
+                    <div class="cue-row activity-row done">
+                      <div class="cue-main">
+                        <span class="activity-check">✓</span>
+                        <span class="activity-name">MC giới thiệu mở màn &amp; Đón khách</span>
+                      </div>
+                      <span class="status-pill done">ĐÃ XONG</span>
+                    </div>
+
+                    <!-- Track 1: Currently Playing (Live dynamic UI) -->
+                    <div class="cue-row track-row playing" id="trackCard1">
+                      <div class="cue-col-title">
+                        <span class="cue-num">01</span>
+                        <div class="cue-meta">
+                          <strong class="cue-name">Cô dâu bước vào lễ đường</strong>
+                          <span class="cue-file">Canon in D (Acoustic Strings).mp3</span>
+                        </div>
+                      </div>
+
+                      <div class="cue-col-wave">
+                        <div class="wave-visual">
+                          <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+                        </div>
+                        <span class="badge-playing">ĐANG PHÁT</span>
+                      </div>
+
+                      <div class="cue-col-timer">
+                        <span class="cue-timer" id="cueTimer1">-02:45</span>
+                      </div>
+                    </div>
+
+                    <!-- Rundown activity step 2 -->
+                    <div class="cue-row activity-row">
+                      <div class="cue-main">
+                        <span class="activity-circle"></span>
+                        <span class="activity-name">Làm lễ trao nhẫn &amp; Rót rượu champagne</span>
+                      </div>
+                      <span class="status-pill pending">CHƯƠNG TRÌNH</span>
+                    </div>
+
+                    <!-- Track 2: Cued Standby -->
+                    <div class="cue-row track-row cued" id="trackCard2">
+                      <div class="cue-col-title">
+                        <span class="cue-num cued">02</span>
+                        <div class="cue-meta">
+                          <strong class="cue-name">Khoảnh khắc First Kiss &amp; Tung hoa cưới</strong>
+                          <span class="cue-file">Until I Found You - Stephen Sanchez.mp3</span>
+                        </div>
+                      </div>
+
+                      <div class="cue-col-wave">
+                        <span class="badge-cued">CHUẨN BỊ (NEXT UP)</span>
+                      </div>
+
+                      <div class="cue-col-timer">
+                        <span class="cue-timer cued">00:58</span>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+
+              <!-- 4. Studio Bottom Deck -->
+              <div class="studio-deck">
+                <!-- Monitor Left -->
+                <div class="deck-monitor">
+                  <span class="monitor-time" id="deckTimeDisplay">-02:45</span>
+                  <div class="monitor-text">
+                    <strong class="monitor-title">Cô dâu bước vào lễ đường</strong>
+                    <span class="monitor-sub">Lễ Cưới Hoàng &amp; Khánh • PHẦN HÔN LỄ</span>
+                  </div>
+                </div>
+
+                <!-- Transport Center -->
+                <div class="deck-transport">
+                  <div class="deck-btn btn-duck" title="Nhạc nền MC (Giảm âm lượng)">
+                    <span>🎙️ NHẠC NỀN MC</span>
+                  </div>
+
+                  <div class="deck-btn btn-step">⏮</div>
+                  
+                  <div class="deck-btn btn-play" title="Play / Pause">
+                    <span>⏸</span>
+                  </div>
+
+                  <div class="deck-btn btn-step">⏭</div>
+
+                  <div class="deck-btn btn-fade" title="Fade out nhẹ nhàng">
+                    <span>📉 TẮT DẦN (3s)</span>
+                  </div>
+                </div>
+
+                <!-- Volume Right -->
+                <div class="deck-volume">
+                  <div class="vol-label">
+                    <span>ÂM LƯỢNG</span>
+                    <strong>85%</strong>
+                  </div>
+                  <div class="vol-slider-track">
+                    <div class="vol-marker" style="left: 85%;"></div>
+                    <div class="vol-fill" style="width: 85%;"></div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          
+          <div class="stage-interactive-tip">
+            <span class="tip-glow"></span>
+            <span>Giao diện thực tế của Audioscript: Kết hợp trực tiếp kịch bản rundown và điều khiển âm thanh trên cùng một màn hình.</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 3 KEY FEATURES (USP 1: ZERO-INSTALL & 100% OFFLINE, USP 3: RUNDOWN-BASED) -->
+    <section class="features-section" id="features">
+      <div class="container">
+        
+        <div class="section-heading text-center">
+          <span class="section-tag">TIỆN ÍCH CỐT LÕI</span>
+          <h2 class="section-title">Sinh ra cho người chạy sự kiện.</h2>
+        </div>
+
+        <div class="features-grid">
+          
+          <!-- Feature 1: Zero-Install & 100% Offline -->
+          <div class="feature-card">
+            <div class="feature-icon">⚡</div>
+            <h3 class="feature-title">Zero-Install &amp; 100% Offline.</h3>
+            <p class="feature-desc">
+              Mở trình duyệt là chạy ngay, không cần cài đặt hay xin quyền Admin. Hoạt động 100% offline, không phụ thuộc internet – sân khấu mất mạng hay show ngoài trời vẫn chạy êm ru trên cả Windows &amp; Mac.
+            </p>
+          </div>
+
+          <!-- Feature 2: Mobile Remote -->
+          <div class="feature-card feature-card-highlight">
+            <div class="feature-icon">📱</div>
+            <h3 class="feature-title">Mobile Remote qua mã QR.</h3>
+            <p class="feature-desc">
+              Quét mã QR là điện thoại biến thành chiếc remote không dây. Tự do đi khắp khán phòng để kiểm tra âm thanh hàng ghế khán giả mà vẫn chủ động bấm nhạc.
+            </p>
+          </div>
+
+          <!-- Feature 3: Rundown-based -->
+          <div class="feature-card">
+            <div class="feature-icon">📋</div>
+            <h3 class="feature-title">Trực quan như kịch bản Rundown.</h3>
+            <p class="feature-desc">
+              Giao diện sắp xếp tuần tự theo đúng kịch bản sự kiện: từng hoạt động của MC xen kẽ với từng bài nhạc. Nhìn lướt là biết ngay sân khấu đang ở bước nào và bài kế tiếp là gì. Nút to, đếm ngược rõ từng giây, giấu sạch thông số kỹ thuật phức tạp để không bao giờ sợ bấm nhầm.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- MOBILE REMOTE SHOWCASE -->
+    <section class="remote-section" id="remote">
+      <div class="container">
+        <div class="remote-banner">
+          
+          <div class="remote-text-col">
+            <span class="section-tag">ĐIỀU KHIỂN KHÔNG DÂY</span>
+            <h2 class="remote-title">Cầm điện thoại.<br>Làm chủ toàn bộ sân khấu.</h2>
+            <p class="remote-desc">
+              Kết nối trực tiếp qua mạng nội bộ chỉ với 1 thao tác quét mã.
+              Giao diện được tối ưu riêng cho ngón tay cái với cơ chế <strong>Chống chạm nhầm (Tap Guard)</strong>, kịch bản rundown thu nhỏ và các nút bấm khẩn cấp to bản.
+            </p>
+
+            <div class="qr-sample-card">
+              <div class="qr-svg-wrap">
+                <svg width="68" height="68" viewBox="0 0 33 33" fill="none">
+                  <rect width="33" height="33" rx="4" fill="#FFFFFF"/>
+                  <rect x="3" y="3" width="7" height="7" fill="#000000"/><rect x="4" y="4" width="5" height="5" fill="#FFFFFF"/><rect x="5" y="5" width="3" height="3" fill="#000000"/>
+                  <rect x="23" y="3" width="7" height="7" fill="#000000"/><rect x="24" y="4" width="5" height="5" fill="#FFFFFF"/><rect x="25" y="5" width="3" height="3" fill="#000000"/>
+                  <rect x="3" y="23" width="7" height="7" fill="#000000"/><rect x="4" y="24" width="5" height="5" fill="#FFFFFF"/><rect x="5" y="25" width="3" height="3" fill="#000000"/>
+                  <rect x="12" y="4" width="2" height="2" fill="#000000"/><rect x="15" y="3" width="2" height="4" fill="#000000"/>
+                  <rect x="4" y="12" width="2" height="3" fill="#000000"/><rect x="13" y="11" width="3" height="3" fill="#000000"/>
+                  <rect x="12" y="18" width="4" height="2" fill="#000000"/><rect x="18" y="17" width="2" height="3" fill="#000000"/>
+                  <rect x="13" y="23" width="3" height="3" fill="#000000"/><rect x="23" y="23" width="4" height="2" fill="#000000"/>
+                </svg>
+              </div>
+              <div class="qr-text">
+                <strong>Quét mã kết nối tức thì</strong>
+                <span>Mở camera điện thoại quét mã là điều khiển được ngay. Không cần cài đặt ứng dụng phụ.</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- PROPORTIONAL PHONE FRAME SHOWCASING REAL REMOTE -->
+          <div class="remote-phone-col">
+            <div class="phone-frame">
+              <div class="phone-dynamic-island"></div>
+              
+              <div class="real-remote-container">
+                
+                <!-- 1. Top Header -->
+                <div class="rem-top-header">
+                  <div class="rem-status-row">
+                    <div class="rem-badge-conn">
+                      <span class="rem-dot-live"></span>
+                      <span>ĐÃ KẾT NỐI (LAN)</span>
+                    </div>
+                    <div class="rem-tap-guard">
+                      <span>Chạm:</span>
+                      <span class="active">1 lần</span>
+                      <span>2 lần</span>
+                    </div>
+                  </div>
+
+                  <div class="rem-monitor-box">
+                    <div class="rem-time-digit" id="remTimer">-02:45</div>
+                    <div class="rem-meta-block">
+                      <span class="rem-ev-name">LỄ CƯỚI HOÀNG &amp; KHÁNH</span>
+                      <strong class="rem-song-name">Cô dâu bước vào lễ đường</strong>
+                    </div>
+                  </div>
+
+                  <div class="rem-mini-wave">
+                    <div class="rem-wave-fill" style="width: 48%;"></div>
+                  </div>
+                </div>
+
+                <!-- 2. Scrollable cuelist rundown in remote -->
+                <div class="rem-cuelist-body">
+                  <div class="rem-group-tag">PHẦN HÔN LỄ</div>
+                  
+                  <div class="rem-card playing">
+                    <div class="rem-card-left">
+                      <span class="rem-card-idx">01</span>
+                      <span class="rem-card-name">Cô dâu bước vào lễ đường</span>
+                    </div>
+                    <span class="rem-card-time">-02:45</span>
+                  </div>
+
+                  <div class="rem-card cued">
+                    <div class="rem-card-left">
+                      <span class="rem-card-idx cued">02</span>
+                      <span class="rem-card-name">First Kiss &amp; Tung hoa</span>
+                    </div>
+                    <span class="rem-card-time">00:58</span>
+                  </div>
+                </div>
+
+                <!-- 3. Real Oversized Thumb Dock -->
+                <div class="rem-bottom-dock">
+                  <!-- Row 1: Emergency Actions -->
+                  <div class="rem-dock-emergency">
+                    <div class="dock-btn btn-rem-duck">
+                      <span>NHẠC NỀN MC</span>
+                    </div>
+                    <div class="dock-btn btn-rem-fade">
+                      <span>TẮT DẦN (3s)</span>
+                    </div>
+                  </div>
+
+                  <!-- Row 2: Transport -->
+                  <div class="rem-dock-transport">
+                    <div class="dock-btn-trans">⏮</div>
+                    <div class="dock-btn-trans btn-trans-play">⏸</div>
+                    <div class="dock-btn-trans">⏭</div>
+                    <div class="dock-btn-trans btn-trans-loop">LẶP</div>
+                  </div>
+
+                  <!-- Row 3: Recessed Volume -->
+                  <div class="rem-dock-volume">
+                    <span class="vol-btn">−</span>
+                    <div class="vol-recess">
+                      <div class="vol-recess-marker" style="left: 85%;"></div>
+                      <div class="vol-recess-track" style="width: 85%;"></div>
+                    </div>
+                    <span class="vol-btn">+</span>
+                    <span class="vol-readout">85%</span>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+            <span class="phone-sub-caption">Giao diện điều khiển thực tế trên màn hình điện thoại</span>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- DOWNLOAD CTA -->
+    <section class="cta-section" id="download">
+      <div class="container text-center">
+        <div class="cta-card">
+          <div class="ambient-glow glow-cta" aria-hidden="true"></div>
+          
+          <h2 class="cta-title">Sẵn sàng cho show diễn tiếp theo?</h2>
+          <p class="cta-sub">
+            Tải nguyên folder web app về máy tính. Mở file <code>index.html</code> là sử dụng ngay, hoạt động hoàn toàn offline không cần internet.
+          </p>
+
+          <div class="cta-button-wrap">
+            <a href="https://drive.google.com/drive/folders/1Loddog4E6fzI087ZXjsqA48wcrF7VIgt?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-cta-download" id="driveDownloadBtn">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              <span>Tải Audioscript qua Google Drive</span>
+              <span class="btn-arrow-icon">↗</span>
+            </a>
+          </div>
+
+          <div class="cta-perks-row">
+            <span>✓ Miễn phí hoàn toàn</span>
+            <span class="dot-sep">•</span>
+            <span>✓ Chạy offline 100% trên sân khấu</span>
+            <span class="dot-sep">•</span>
+            <span>✓ Hỗ trợ cả macOS &amp; Windows</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- MINIMAL FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <div class="footer-left">
+        <strong>Audioscript</strong>
+        <span>Live Event Audio Deck &amp; Show Control</span>
+      </div>
+      <div class="footer-right">
+        <a href="#hero">Về đầu trang ↑</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
